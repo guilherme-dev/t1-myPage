@@ -188,7 +188,35 @@ footer {
 article p {
     margin: 20px 45px;
 }
-  
+
+ /*************************************
+  ----- VISUALIZEITOR -----
+**************************************/
+
+.container {
+  width: 85%;
+  margin: 30px auto;
+}
+
+.grade-table {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  border: 2px solid #5F5858;
+}
+
+.grade-table th {
+  height: 20px;
+}
+
+.grade-table tr {
+  margin: 10px;
+}
+
+.grade-table td {
+  height: 30px;
+  border: 2px solid #808080;
+}
 /*************************************
   COLORS
 **************************************/
