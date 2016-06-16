@@ -144,13 +144,13 @@ function showDetails(event, td){
         html = ('Matéria não cursada ainda.');
     }
     if(event.button == 2) {
+        html = '<p>' + historico[0].codMateria + ' - ' + historico[0].materia + '</p>';
         for(var i = 0; i < historico.length; i++){
         	//acumula as materias
-            html +='\
-                <p>' + historico[i].materia + '</p>\
+            html += '\
+                <p>' + historico[i].ano + ' - ' + historico[i].periodo + '</p>\
                 <p>Nota: ' + historico[i].nota + '</p>\
-                <p>Frequencia: ' + historico[i].frequencia + '</p>\
-                <p>' + historico[i].ano + ' - ' + historico[i].periodo + '</p><br>\
+                <p>Frequencia: ' + historico[i].frequencia + '</p><br>\
             ';
         }
         $('.modal-header h2').html('Histórico');
