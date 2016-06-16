@@ -148,31 +148,43 @@ function showDetails(event, td){
         	//acumula as materias
             html +='\
                 <p>' + historico[i].materia + '</p>\
-                <p>Nota: ' + historico.nota + '</p>\
-                <p>Frequencia: ' + historico.frequencia + '</p>\
-                <p>' + historico.ano + ' - ' + historico.periodo + '</p><br>\
+                <p>Nota: ' + historico[i].nota + '</p>\
+                <p>Frequencia: ' + historico[i].frequencia + '</p>\
+                <p>' + historico[i].ano + ' - ' + historico[i].periodo + '</p><br>\
             ';
         }
         $('.modal-header h2').html('Histórico');
         $('.modal-body').html(html);
-        $('#modal').dialog({maxHeight: 400});
-    }/* else {
-        var grr = $("#grr").val()
-        var aluno = findAluno(grr);
-        var disc = findDiscForAluno(aluno, td.attr('id'));
-        for(var i = 0; i < disc.length; i++){
-            $("#popup").html('\
-                <p>' + historico.nomeDisc + '</p>\
-                <p>' + historico.ano + ' - ' + historico.periodo + '</p><br>\
-                <p>Nota: ' + historico.nota + '</p>\
-                <p>Frequencia: ' + historico.frequencia + '</p>\
-            ');
-        }
-        if(disc.length == 0){
-            $("#popup").html('Nunca cursado!');
-        }
-        $('#popup').dialog({maxHeight: 350});
-    }*/
+        $('#modal').dialog({
+            dialogClass: "no-close",
+            maxHeight: 400,
+            buttons: [{
+                text: "OK",
+                click: function() {
+                    $( this ).dialog( "close" );
+                }
+            }]
+        });
+    } else {
+        var j = historico.length -1;
+        html +='\
+                <p>' + historico[j].materia + '</p>\
+                <p>Nota: ' + historico[j].nota + '</p>\
+                <p>Frequencia: ' + historico[j].frequencia + '</p>\
+                <p>' + historico[j].ano + ' - ' + historico[j].periodo + '</p><br>\
+            ';
+        $('.modal-header h2').html('Última vez cursada');
+        $('.modal-body').html(html);
+        $('#modal').dialog({
+            dialogClass: "no-close",
+            buttons: [{
+                text: "OK",
+                click: function() {
+                    $( this ).dialog( "close" );
+                }
+            }]
+        });
+    }
 }
 
 var materias = [];
